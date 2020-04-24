@@ -4,7 +4,7 @@
   <% end %>
 
   <% @items.each do |item| %>
-  <div id="item-<%= item.id%> ">
+  <div id="item-<%= item.id %>">
     <p><%= item.name %></p>
     <p><%= item.description %></p>
     <%= link_to edit_item_path(item) do %>
