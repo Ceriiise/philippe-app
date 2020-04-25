@@ -7,6 +7,10 @@
   <div id="item-<%= item.id %>">
     <p><%= item.name %></p>
     <p><%= item.description %></p>
+    <%= link_to new_item_booking_path(item) do %>
+      réserver
+    <% end %>
+
     <%= link_to edit_item_path(item) do %>
       modifier
     <% end %>
