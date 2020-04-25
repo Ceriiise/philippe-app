@@ -1,0 +1,5 @@
+<%= simple_form_for @item do |f| %>
+  <%= f.input :name, label: "Nom de l'objet" %>
+  <%= f.input :description, label: "Description de l'objet" %>
+  <%= f.button :submit, value: "Enregistrer" %>
+<% end %>
