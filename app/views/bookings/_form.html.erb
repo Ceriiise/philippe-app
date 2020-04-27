@@ -1,0 +1,11 @@
+<div class="container">
+
+  <h4>Réservations pour <%= @item.name %></h4>
+  <%= simple_form_for [@item, @booking] do |f| %>
+    <%= f.input :user, label: "Quel est votre nom ?" %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+
+    <%= f.button :submit, value: "Réserver" %>
+  <% end %>
+</div>

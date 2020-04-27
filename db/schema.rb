@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200424124204) do
+ActiveRecord::Schema.define(version: 20200425124732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "user"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.index ["item_id"], name: "index_bookings_on_item_id"
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -22,4 +32,5 @@ ActiveRecord::Schema.define(version: 20200424124204) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bookings", "items"
 end
