@@ -12,9 +12,7 @@ RSpec.describe "User can book an item" do
     end
 
     fill_in "booking[user]", with: 'Julien'
-    select '2020', from: "booking_start_date_1i"
-    select 'April', from: "booking_start_date_2i"
-    select '24', from: "booking_start_date_3i"
+    select '2020-04-13', from: "booking_start_date"
 
     select '2020', from: "booking_end_date_1i"
     select 'April', from: "booking_end_date_2i"
