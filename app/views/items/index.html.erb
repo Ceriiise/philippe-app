@@ -22,4 +22,18 @@
     <% end %>
   <% end %>
   </div>
+
+  <%= month_calendar events: @bookings do |date, bookings| %>
+    <div class="text-center border-bottom mb-3">
+      <small><%= date.strftime("%e %B") %></small>
+    </div>
+
+    <% bookings.each do |booking| %>
+      <div class="py-1">
+        <span class="m-0"><%= booking.item.name %></span>
+        <span class="m-0"><small>(<%= booking.user %>)</small></span>
+      </div>
+    <% end %>
+  <% end %>
+
 </div>
