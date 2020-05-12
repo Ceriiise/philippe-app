@@ -3,7 +3,6 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:edit, :update, :destroy]
 
   def index
-    @bookings = Booking.where(item_id: @item.id)
   end
 
   def show
@@ -26,7 +25,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.item = @item
     if @booking.save
-      redirect_to item_bookings_path
+      redirect_to items_path
+      flash[:notice] = "La réservation a bien été prise en compte"
     else
       render :new
     end
