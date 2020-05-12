@@ -11,6 +11,15 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+
+    @item = Item.find(params[:item_id])
+    @bookings = Booking.where(item_id: @item.id)
+    @bookings_dates = @bookings.map do |booking|
+      {
+        from: booking.start_date,
+        to: booking.end_date
+      }
+    end
   end
 
   def create

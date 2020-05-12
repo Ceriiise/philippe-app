@@ -3,9 +3,14 @@
   <h4>Réservations pour <%= @item.name %></h4>
   <%= simple_form_for [@item, @booking] do |f| %>
     <%= f.input :user, label: "Quel est votre nom ?" %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
+    <%= f.input :start_date, label: "Sélectionnez vos dates:", as: :string, required: false, input_html: { id: "range_start", class: "d-none"} %>
+    <%= f.input :end_date, label: false, as: :string, required: false, input_html: { id: "range_end", class: "d-none" } %>
 
     <%= f.button :submit, value: "Réserver" %>
   <% end %>
+
+  <div id="booking-form-div"
+       data-bookings="<%= @bookings_dates.to_json %>"
+  >
+  </div>
 </div>
