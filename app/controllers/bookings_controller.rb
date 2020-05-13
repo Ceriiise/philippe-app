@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.item = @item
     if @booking.save
-      redirect_to items_path
+      redirect_to root_path
       flash[:notice] = "La réservation a bien été prise en compte"
     else
       render :new
