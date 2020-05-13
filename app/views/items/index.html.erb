@@ -1,39 +1,36 @@
 <div class="container">
-  <%= link_to new_item_path do %>
-    <p>Ajouter un objet</p>
-  <% end %>
-
-  <% @items.each do |item| %>
-  <div id="item-<%= item.id %>">
-    <p><%= item.name %></p>
-    <p><%= item.description %></p>
-    <%= link_to new_item_booking_path(item), data: {turbolinks: false}  do %>
-      réserver
-    <% end %>
-
-    <%= link_to edit_item_path(item) do %>
-      modifier
-    <% end %>
-    <%= link_to item_path(item),
-            class: "delete-item",
-            method: :delete,
-            data: { confirm: "Êtes-vous sûr ?" } do %>
-      supprimer
-    <% end %>
-  <% end %>
+  <div class="my-4 text-center">
+    <h1>Chez Philippe</h1>
   </div>
 
-  <%= month_calendar events: @bookings do |date, bookings| %>
-    <div class="text-center border-bottom mb-3">
-      <small><%= date.strftime("%e %B") %></small>
-    </div>
-
-    <% bookings.each do |booking| %>
-      <div class="py-1">
-        <span class="m-0"><%= booking.item.name %></span>
-        <span class="m-0"><small>(<%= booking.user %>)</small></span>
+  <div class="items-container">
+    <% @items.each do |item| %>
+      <div class="card m-1" id="item-<%= item.id %>">
+        <h5 class="card-header"><%= item.name %></h5>
+        <div class="card-body">
+          <p class="card-text"><%= item.description %></p>
+          <%= link_to new_item_booking_path(item), class: "btn btn-green", data: {turbolinks: false}  do %>
+            réserver
+          <% end %>
+        </div>
       </div>
     <% end %>
-  <% end %>
+  </div>
+
+  <div class="calendar-container">
+    <h4>Calendrier</h4>
+    <%= month_calendar events: @bookings do |date, bookings| %>
+      <div class="mb-3">
+        <small><%= date.strftime("%e") %></small>
+      </div>
+
+      <% bookings.each do |booking| %>
+        <div class="calendar-item p-1">
+          <span class="m-0"><%= booking.item.name %></span>
+          <span class="m-0"><small>(<%= booking.user %>)</small></span>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 
 </div>
