@@ -9,7 +9,7 @@
         <h5 class="card-header"><%= item.name %></h5>
         <div class="card-body">
           <p class="card-text"><%= item.description %></p>
-          <%= link_to new_item_booking_path(item), class: "btn btn-light", data: {turbolinks: false}  do %>
+          <%= link_to new_item_booking_path(item), class: "btn btn-green", data: {turbolinks: false}  do %>
             réserver
           <% end %>
         </div>
@@ -20,12 +20,12 @@
   <div class="calendar-container">
     <h4>Calendrier</h4>
     <%= month_calendar events: @bookings do |date, bookings| %>
-      <div class="text-center border-bottom mb-3">
-        <small><%= date.strftime("%e %B") %></small>
+      <div class="mb-3">
+        <small><%= date.strftime("%e") %></small>
       </div>
 
       <% bookings.each do |booking| %>
-        <div class="py-1">
+        <div class="calendar-item p-1">
           <span class="m-0"><%= booking.item.name %></span>
           <span class="m-0"><small>(<%= booking.user %>)</small></span>
         </div>

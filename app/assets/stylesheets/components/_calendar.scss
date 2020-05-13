@@ -1,0 +1,42 @@
+.simple-calendar table {
+  background-color: $white;
+}
+
+.calendar-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 1rem 0;
+
+  .calendar-title {
+    font-weight: 300;
+    font-size: 1.5rem;
+  }
+
+  a {
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    color: $gray;
+  }
+}
+.simple-calendar .prev-month {
+  background-color: $white;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: $white;
+}
+
+.simple-calendar .today {
+    background: $light-green;
+}
+
+.calendar-item {
+  background-color: $green;
+  color: $light-gray;
+  border-radius: 8px;
+  font-weight: 300;
+  font-size: 0.9rem;
+  margin-bottom: 0.1rem;
+  text-align: center;
+}
